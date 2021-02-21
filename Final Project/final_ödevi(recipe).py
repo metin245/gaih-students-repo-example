@@ -1,5 +1,5 @@
 class Tarifler:
-    def __init__(self,ad):
+    def __init__(self,ad,malzemeler):
         self.ad=ad
     def add_ing(self,ing):
         if ing not in self.malzemeler:
@@ -16,16 +16,15 @@ class Tarifler:
         print("tencereye su koy ")
 
 class makarna(Tarifler):
-    def __init__(self,ad,malzemeler=None):
-        super().__init__(ad)
+    def __init__(self,ad,malzemeler):
+        super().__init__(ad,malzemeler)
         if malzemeler is None:
             self.malzemeler=[]
         else:
             self.malzemeler=malzemeler
-
 class pilav(Tarifler):
     def __init__(self,ad,malzemeler):
-        super().__init__(ad)
+        super().__init__(ad,malzemeler)
         if malzemeler is None:
             self.malzemeler=[]
         else:
@@ -44,14 +43,15 @@ def menu():
     print("1.Makarna 2.Pilav 3.Mercimek Çorbası 4.Çıkış", sep="***")
     choice = input("Seçiminizi Giriniz:")
     if choice == "1":
-        mk=makarna('italiano')
-        mk.add_ing('makarna')
+        mk=makarna('italiano',['su'])
+        mk.add_ing('çubuk')
+        print(mk.malzemeler)
     elif choice == "2":
-        pl=pilav('pirinç')
-        pl.add_ing()
+        pl=pilav('pirinç', ['su'])
+        pl.add_ing('tel şehriye')
     elif choice == "3":
-        cb=corba('mercimek')
-        cb.add_ing
+        cb =corba('mercimek', ['su'])
+        cb.add_ing('soğan')
     elif choice=='4':
         exit()
     else:
