@@ -1,6 +1,10 @@
 class Tarifler:
     def __init__(self,ad,malzemeler):
         self.ad=ad
+        if malzemeler is None:
+            self.malzemeler=[]
+        else:
+            self.malzemeler=malzemeler
     def add_ing(self,ing):
         if ing not in self.malzemeler:
             self.malzemeler.append(ing)
@@ -18,25 +22,14 @@ class Tarifler:
 class makarna(Tarifler):
     def __init__(self,ad,malzemeler):
         super().__init__(ad,malzemeler)
-        if malzemeler is None:
-            self.malzemeler=[]
-        else:
-            self.malzemeler=malzemeler
+
 class pilav(Tarifler):
     def __init__(self,ad,malzemeler):
         super().__init__(ad,malzemeler)
-        if malzemeler is None:
-            self.malzemeler=[]
-        else:
-            self.malzemeler=malzemeler
 
 class corba(Tarifler):
     def __init__(self,ad,malzemeler):
         super().__init__(ad)
-        if malzemeler is None:
-            self.malzemeler=[]
-        else:
-            self.malzemeler=malzemeler
 
 def menu():
     print("Tarifini istediğiniz yemeği saçiniz")
